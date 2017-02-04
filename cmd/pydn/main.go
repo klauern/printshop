@@ -20,7 +20,7 @@
 
 package main
 
-import "github.com/klauern/power-your-devops/cmd"
+import "github.com/klauern/printshop/cmd"
 
 func main() {
 	cmd.Execute()
