@@ -29,13 +29,9 @@ import (
 // boardCmd represents the board command
 var boardCmd = &cobra.Command{
 	Use:   "board",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Perform actions on Trello Boards",
+	Long: `'board' performance actions on Trello boards, allowing
+you to create or list the available email list boards.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// TODO: Work your own magic here
 		fmt.Println("board called")
