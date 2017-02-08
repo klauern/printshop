@@ -3,6 +3,7 @@ package printshop
 import "github.com/VojtechVitek/go-trello"
 import "github.com/pkg/errors"
 import "strings"
+import "github.com/shurcooL/github_flavored_markdown"
 
 var TrelloAPIError = errors.New("Error Calling the Trello API")
 
@@ -10,7 +11,7 @@ const META = "meta"
 
 type Article struct {
 	Title    string
-	BodyHTML string
+	BodyHTML []byte
 }
 
 type Section struct {
@@ -84,5 +85,8 @@ func NewSection(l *trello.List) (*Section, error) {
 }
 
 func NewArticle(card *trello.Card) (*Article, error) {
-
+	return &Article{
+		Title:    card.Name,
+		BodyHTML: github_flavored_markdown.Markdown([]byte(card.Desc)),
+	}, nil
 }
