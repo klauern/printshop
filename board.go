@@ -35,14 +35,17 @@ func NewEmail(b *trello.Board) *Email {
 	email := &Email{}
 	for _, v := range lists {
 		if v.Name == META {
-			meta, err := *NewMetaData(&v)
+			meta, err := NewMetaData(&v)
 			if err == nil {
-				email.meta = meta
+				email.meta = *meta
 			}
 		} else {
-			section, err := *NewSection(&v)
+			section, err := NewSection(&v)
 			if err == nil {
-				email.sections = append(email.sections, *NewSection(&v))
+				section, err := NewSection(&v)
+				if err == nil {
+					email.sections = append(email.sections, *section)
+				}
 			}
 		}
 	}
@@ -72,9 +75,14 @@ func NewSection(l *trello.List) (*Section, error) {
 		return nil, errors.Wrapf(err, "Unable to retrieve cards for list %s", l.Name)
 	}
 	for _, card := range cards {
-
-		section.Articles = append(section.Articles, &Ar)
-
+		article, err := NewArticle(&card)
+		if err == nil {
+			section.Articles = append(section.Articles, *article)
+		}
 	}
+	return section, nil
+}
+
+func NewArticle(card *trello.Card) (*Article, error) {
 
 }
