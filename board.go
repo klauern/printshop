@@ -43,10 +43,7 @@ func NewEmail(b *trello.Board) *Email {
 		} else {
 			section, err := NewSection(&v)
 			if err == nil {
-				section, err := NewSection(&v)
-				if err == nil {
-					email.sections = append(email.sections, *section)
-				}
+				email.sections = append(email.sections, *section)
 			}
 		}
 	}
