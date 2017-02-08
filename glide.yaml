@@ -1,0 +1,9 @@
+package: github.com/klauern/printshop
+import:
+- package: github.com/VojtechVitek/go-trello
+  version: ^0.1.0
+- package: github.com/pkg/errors
+  version: ^0.8.0
+- package: github.com/shurcooL/github_flavored_markdown
+- package: github.com/spf13/cobra
+- package: github.com/spf13/viper
