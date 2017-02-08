@@ -1,7 +1,8 @@
 package printshop
 
 import "github.com/VojtechVitek/go-trello"
-import "errors"
+import "github.com/pkg/errors"
+import "strings"
 
 var TrelloAPIError = errors.New("Error Calling the Trello API")
 
@@ -34,19 +35,46 @@ func NewEmail(b *trello.Board) *Email {
 	email := &Email{}
 	for _, v := range lists {
 		if v.Name == META {
-			email.meta = *NewMetaData(&v)
+			meta, err := *NewMetaData(&v)
+			if err == nil {
+				email.meta = meta
+			}
 		} else {
-			email.sections = append(email.sections, *NewSection(&v))
+			section, err := *NewSection(&v)
+			if err == nil {
+				email.sections = append(email.sections, *NewSection(&v))
+			}
 		}
 	}
 	return email
 }
 
-func NewMetaData(l *trello.List) *MetaData {
+func NewMetaData(l *trello.List) (*MetaData, error) {
 	cards, err := l.Cards()
-
+	if err != nil {
+		return nil, errors.Wrapf(err, "Unable to retrieve cards for list %s", l.Name)
+	}
+	for _, card := range cards {
+		if strings.ToLower(card.Name) == "subject" {
+			return &MetaData{card.Desc}, nil
+		}
+	}
+	return nil, errors.New("No card with 'subject' found in name")
 }
 
-func NewSection(l *trello.List) *Section {
+func NewSection(l *trello.List) (*Section, error) {
+	section := &Section{
+		Title:    l.Name,
+		Articles: make([]Article, 0),
+	}
+	cards, err := l.Cards()
+	if err != nil {
+		return nil, errors.Wrapf(err, "Unable to retrieve cards for list %s", l.Name)
+	}
+	for _, card := range cards {
+
+		section.Articles = append(section.Articles, &Ar)
+
+	}
 
 }
