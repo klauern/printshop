@@ -1,0 +1,32 @@
+codecov:
+  branch: master
+  bot: klauern
+  notify:
+    require_ci_to_pass: true
+  ci:
+    - !appveyor
+    - wercker
+  token: cb78f155-8773-44ab-99c1-588911e1dbd3
+comment:
+  behavior: default
+  layout: header, diff
+  require_changes: false
+coverage:
+  precision: 2
+  range:
+  - 40.0
+  - 100.0
+  round: down
+  status:
+    changes: false
+    patch: true
+    project: true
+parsers:
+  gcov:
+    branch_detection:
+      conditional: true
+      loop: true
+      macro: false
+      method: false
+  javascript:
+    enable_partials: false
