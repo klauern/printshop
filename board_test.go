@@ -5,7 +5,16 @@ import (
 	"testing"
 
 	"github.com/VojtechVitek/go-trello"
+	check "gopkg.in/check.v1"
 )
+
+func Test(t *testing.T) {
+	check.TestingT(t)
+}
+
+type BoardSuite struct{}
+
+var _ = check.Suite(&BoardSuite{})
 
 func TestNewEmail(t *testing.T) {
 	type args struct {
