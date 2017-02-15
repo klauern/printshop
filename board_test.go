@@ -20,6 +20,14 @@ func (b *BoardSuite) NewTrelloBoard() *trello.Board {
 	return &trello.Board{}
 }
 
+func (b *BoardSuite) NewTrelloCard() *trello.Card {
+	return &trello.Card{}
+}
+
+func (b *BoardSuite) NewTrelloList() *trello.List {
+	return &trello.List{}
+}
+
 func (b *BoardSuite) TestNewEmail(t *check.C) {
 	type args struct {
 		b *trello.Board
@@ -52,7 +60,14 @@ func TestNewMetaData(t *testing.T) {
 		want    *MetaData
 		wantErr bool
 	}{
-	// TODO: Add test cases.
+		{
+			"nil, empty",
+			args{
+				&trello.List{},
+			},
+			&MetaData{},
+			false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -68,7 +83,7 @@ func TestNewMetaData(t *testing.T) {
 	}
 }
 
-func TestNewSection(t *testing.T) {
+func (b *BoardSuite) TestNewSection(t *check.C) {
 	type args struct {
 		l *trello.List
 	}
@@ -78,19 +93,19 @@ func TestNewSection(t *testing.T) {
 		want    *Section
 		wantErr bool
 	}{
-	// TODO: Add test cases.
+		{
+			"generic",
+			args{
+				b.NewTrelloList(),
+			},
+			&Section{},
+			false,
+		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := NewSection(tt.args.l)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("NewSection() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewSection() = %v, want %v", got, tt.want)
-			}
-		})
+		got, err := NewSection(tt.args.l)
+		t.Check(got, check.DeepEquals, tt.want)
+		t.Check(err, check.IsNil)
 	}
 }
 
@@ -104,7 +119,14 @@ func TestNewArticle(t *testing.T) {
 		want    *Article
 		wantErr bool
 	}{
-	// TODO: Add test cases.
+		{
+			"generic",
+			args{
+				&trello.Card{},
+			},
+			&Article{},
+			false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
