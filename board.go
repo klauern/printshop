@@ -7,7 +7,11 @@ import "github.com/shurcooL/github_flavored_markdown"
 
 var TrelloAPIError = errors.New("Error Calling the Trello API")
 
-const META = "meta"
+const (
+	META      = "meta"
+	TOKEN_ENV = "TRELLO_TOKEN"
+	KEY_ENV   = "TRELLO_APIKEY"
+)
 
 type Article struct {
 	Title    string

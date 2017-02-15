@@ -1,6 +1,7 @@
 package printshop
 
 import (
+	"os"
 	"reflect"
 	"testing"
 
@@ -12,7 +13,9 @@ func Test(t *testing.T) {
 	check.TestingT(t)
 }
 
-type BoardSuite struct{}
+type BoardSuite struct {
+	client *trello.Client
+}
 
 var _ = check.Suite(&BoardSuite{})
 
@@ -26,6 +29,22 @@ func (b *BoardSuite) NewTrelloCard() *trello.Card {
 
 func (b *BoardSuite) NewTrelloList() *trello.List {
 	return &trello.List{}
+}
+
+func (b *BoardSuite) SetUpSuite(c *check.C) {
+	key := os.Getenv(KEY_ENV)
+	token := os.Getenv(TOKEN_ENV)
+	client, err := trello.NewAuthClient(key, &token)
+	if err != nil {
+		panic(err)
+	}
+	b.client = client
+}
+
+var suite *BoardSuite
+
+func init() {
+	suite = &BoardSuite{}
 }
 
 func (b *BoardSuite) TestNewEmail(t *check.C) {
