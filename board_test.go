@@ -23,8 +23,20 @@ func (b *BoardSuite) NewTrelloBoard() *trello.Board {
 	return &trello.Board{}
 }
 
-func (b *BoardSuite) NewTrelloCard() *trello.Card {
-	return &trello.Card{}
+func (b *BoardSuite) NewTrelloCard(id string) *trello.Card {
+	const DefaultCardID = ""
+	if id == "" {
+		card, err := b.client.Card(DefaultCardID)
+		if err != nil {
+			panic(err)
+		}
+		return card
+	}
+	card, err := b.client.Card(id)
+	if err != nil {
+		panic(err)
+	}
+	return card
 }
 
 func (b *BoardSuite) NewTrelloList() *trello.List {
@@ -41,10 +53,10 @@ func (b *BoardSuite) SetUpSuite(c *check.C) {
 	b.client = client
 }
 
-var suite *BoardSuite
+var testSuite *BoardSuite
 
 func init() {
-	suite = &BoardSuite{}
+	testSuite = &BoardSuite{}
 }
 
 func (b *BoardSuite) TestNewEmail(t *check.C) {
@@ -128,7 +140,7 @@ func (b *BoardSuite) TestNewSection(t *check.C) {
 	}
 }
 
-func TestNewArticle(t *testing.T) {
+func (b *BoardSuite) TestNewArticle(t *check.C) {
 	type args struct {
 		card *trello.Card
 	}
@@ -141,22 +153,15 @@ func TestNewArticle(t *testing.T) {
 		{
 			"generic",
 			args{
-				&trello.Card{},
+				card: b.NewTrelloCard(""),
 			},
 			&Article{},
 			false,
 		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := NewArticle(tt.args.card)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("NewArticle() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewArticle() = %v, want %v", got, tt.want)
-			}
-		})
+		got, err := NewArticle(tt.args.card)
+		t.Check(err, check.IsNil)
+		t.Check(got, check.DeepEquals, tt.want)
 	}
 }
