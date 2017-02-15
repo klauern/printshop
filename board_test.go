@@ -16,7 +16,11 @@ type BoardSuite struct{}
 
 var _ = check.Suite(&BoardSuite{})
 
-func TestNewEmail(t *testing.T) {
+func (b *BoardSuite) NewTrelloBoard() *trello.Board {
+	return &trello.Board{}
+}
+
+func (b *BoardSuite) TestNewEmail(t *check.C) {
 	type args struct {
 		b *trello.Board
 	}
@@ -25,14 +29,16 @@ func TestNewEmail(t *testing.T) {
 		args args
 		want *Email
 	}{
-	// TODO: Add test cases.
+		{
+			"generic",
+			args{
+				b: b.NewTrelloBoard(),
+			},
+			&Email{},
+		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := NewEmail(tt.args.b); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewEmail() = %v, want %v", got, tt.want)
-			}
-		})
+		t.Check(NewEmail(tt.args.b), check.DeepEquals, tt.want)
 	}
 }
 
