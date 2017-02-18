@@ -5,7 +5,7 @@ import "github.com/pkg/errors"
 import "strings"
 import "github.com/shurcooL/github_flavored_markdown"
 
-var TrelloAPIError = errors.New("Error Calling the Trello API")
+var TrelloAPIError = errors.New("Error calling the Trello API")
 
 const (
 	META      = "meta"
