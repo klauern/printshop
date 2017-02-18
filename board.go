@@ -12,6 +12,7 @@ const (
 	MetaDataListName = "meta"
 	TOKEN_ENV        = "TRELLO_TOKEN"
 	KEY_ENV          = "TRELLO_APIKEY"
+	MaxWorkers       = 5
 )
 
 type Article struct {
@@ -33,12 +34,12 @@ type Email struct {
 	sections []Section
 }
 
-type listName string
+type listID string
 
 type BoardContainer struct {
 	board *trello.Board
 	lists []*trello.List
-	cards map[listName]*trello.Card
+	cards map[listID][]trello.Card
 	mux   sync.Mutex
 }
 
@@ -62,17 +63,32 @@ func NewContainer(c *trello.Client, boardID string) (*BoardContainer, error) {
 }
 
 func (c *BoardContainer) RetrieveCards() error {
-	for _, list := range c.lists {
-		// do some magic with a worker pool of channels
+	jobs := make(chan *trello.List, len(c.lists))
+	results := make(chan []trello.Card, len(c.lists))
+	// create the worker pool
+	for i := 0; i < MaxWorkers; i++ {
+		go c.ListWorker(i, jobs, results)
 	}
+	// Queue up the jobs
+	for _, list := range c.lists {
+		jobs <- list
+	}
+	close(jobs)
+
+	for range c.lists {
+		cardList := <-results
+		id := listID(cardList[0].IdList)
+		c.cards[id] = cardList
+	}
+	return nil
 }
 
-func (c *BoardContainer) CardClientWorker(id int, cardJob <-chan *trello.Card) {
-	for j := range cardJob {
-
+func (c *BoardContainer) ListWorker(id int, listJob <-chan *trello.List, results chan<- []trello.Card) {
+	for j := range listJob {
+		if cards, err := j.Cards(); err == nil {
+			results <- cards
+		}
 	}
-	c.mux.Lock()
-	c.mux.Unlock()
 }
 
 func NewEmail(b *trello.Board) *Email {
