@@ -32,19 +32,19 @@ build:
         name: go get
         code: |
           go get ./...
-          curl https://glide.sh/get | sh
+          go get -u github.com/Masterminds/glide
 
     # Build the project
     - script:
         name: go build
         code: |
-          glide i
-          go build ./...
+          glide install
+          go build $(glide nv)
 
     # Test the project
     - script:
         name: go test
         code: |
-          go test
+          go test $(glide nv)
 
     - golint

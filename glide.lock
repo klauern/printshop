@@ -92,4 +92,6 @@ imports:
   - unicode/norm
 - name: gopkg.in/yaml.v2
   version: a5b47d31c556af34a302ce5d659e6fea44d90de0
-testImports: []
+testImports:
+- name: github.com/go-check/check
+  version: 20d25e2804050c1cd24a7eea1e7a6447dd0e74ec

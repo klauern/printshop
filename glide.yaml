@@ -7,3 +7,5 @@ import:
 - package: github.com/shurcooL/github_flavored_markdown
 - package: github.com/spf13/cobra
 - package: github.com/spf13/viper
+testImport:
+- package: github.com/go-check/check
