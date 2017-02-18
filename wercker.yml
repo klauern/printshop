@@ -31,17 +31,20 @@ build:
         name: go get
         code: |
           go get ./...
+          go get -u github.com/golang/dep/...
+          go get jrubin.io/zb
 
     # Build the project
     - script:
-        name: go build
+        name: zb build
         code: |
-          go build ./...
+          dep ensure
+          zb build
 
     # Test the project
     - script:
-        name: go test
+        name: zb test
         code: |
-          go test ./...
+          zb test
 
     - golint
