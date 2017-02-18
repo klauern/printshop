@@ -4,6 +4,7 @@ import "github.com/VojtechVitek/go-trello"
 import "github.com/pkg/errors"
 import "strings"
 import "github.com/shurcooL/github_flavored_markdown"
+import "sync"
 
 var TrelloAPIError = errors.New("Error calling the Trello API")
 
@@ -30,6 +31,48 @@ type MetaData struct {
 type Email struct {
 	meta     MetaData
 	sections []Section
+}
+
+type listName string
+
+type BoardContainer struct {
+	board *trello.Board
+	lists []*trello.List
+	cards map[listName]*trello.Card
+	mux   sync.Mutex
+}
+
+func NewContainer(c *trello.Client, boardID string) (*BoardContainer, error) {
+	board, err := c.Board(boardID)
+	if err != nil {
+		return nil, errors.Wrap(err, "Unable to build Board container")
+	}
+	container := &BoardContainer{
+		board: board,
+	}
+	lists, err := board.Lists()
+	if err != nil {
+		return container, errors.Wrapf(err, "Cannot get Lists for Board")
+	}
+	for _, list := range lists {
+		container.lists = append(container.lists, &list)
+	}
+
+	return container, nil
+}
+
+func (c *BoardContainer) RetrieveCards() error {
+	for _, list := range c.lists {
+		// do some magic with a worker pool of channels
+	}
+}
+
+func (c *BoardContainer) CardClientWorker(id int, cardJob <-chan *trello.Card) {
+	for j := range cardJob {
+
+	}
+	c.mux.Lock()
+	c.mux.Unlock()
 }
 
 func NewEmail(b *trello.Board) *Email {
