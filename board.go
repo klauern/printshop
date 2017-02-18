@@ -8,9 +8,9 @@ import "github.com/shurcooL/github_flavored_markdown"
 var TrelloAPIError = errors.New("Error calling the Trello API")
 
 const (
-	META      = "meta"
-	TOKEN_ENV = "TRELLO_TOKEN"
-	KEY_ENV   = "TRELLO_APIKEY"
+	MetaDataListName = "meta"
+	TOKEN_ENV        = "TRELLO_TOKEN"
+	KEY_ENV          = "TRELLO_APIKEY"
 )
 
 type Article struct {
@@ -39,7 +39,7 @@ func NewEmail(b *trello.Board) *Email {
 	}
 	email := &Email{}
 	for _, v := range lists {
-		if v.Name == META {
+		if v.Name == MetaDataListName {
 			meta, err := NewMetaData(&v)
 			if err == nil {
 				email.meta = *meta
