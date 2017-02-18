@@ -1,0 +1,19 @@
+{
+    "dependencies": {
+        "github.com/VojtechVitek/go-trello": {
+            "branch": "master"
+        },
+        "github.com/pkg/errors": {
+            "branch": "master"
+        },
+        "github.com/shurcooL/github_flavored_markdown": {
+            "branch": "master"
+        },
+        "github.com/spf13/cobra": {
+            "branch": "master"
+        },
+        "github.com/spf13/viper": {
+            "branch": "master"
+        }
+    }
+}

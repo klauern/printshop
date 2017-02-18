@@ -1,0 +1,263 @@
+{
+    "memo": "12c6762b66b3fe2ecb5f6e60bf95045de513aa0ab79558f7245fa8f7665fdf98",
+    "projects": [
+        {
+            "name": "github.com/VojtechVitek/go-trello",
+            "branch": "master",
+            "revision": "28ebf2756ecc6c69262fba5d5c2f80c0e6dce5e8",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/fsnotify/fsnotify",
+            "branch": "master",
+            "revision": "a904159b9206978bb6d53fcc7a769e5cd726c737",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/hashicorp/hcl",
+            "branch": "master",
+            "revision": "630949a3c5fa3c613328e1b8256052cbc2327c9b",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/inconshreveable/mousetrap",
+            "branch": "master",
+            "revision": "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/magiconair/properties",
+            "branch": "master",
+            "revision": "b3b15ef068fd0b17ddf408a23669f20811d194d2",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/microcosm-cc/bluemonday",
+            "branch": "master",
+            "revision": "e79763773ab6222ca1d5a7cbd9d62d83c1f77081",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/mitchellh/mapstructure",
+            "branch": "master",
+            "revision": "db1efb556f84b25a0a13a04aad883943538ad2e0",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/pelletier/go-buffruneio",
+            "branch": "master",
+            "revision": "df1e16fde7fc330a0ca68167c23bf7ed6ac31d6d",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/pelletier/go-toml",
+            "branch": "master",
+            "revision": "22139eb5469018e7374b3e7ef653de37ffb44f72",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/pkg/errors",
+            "branch": "master",
+            "revision": "248dadf4e9068a0b3e79f02ed0a610d935de5302",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/russross/blackfriday",
+            "branch": "master",
+            "revision": "5f33e7b7878355cd2b7e6b8eefc48a5472c69f70",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/sergi/go-diff",
+            "branch": "master",
+            "revision": "24e2351369ec4949b2ed0dc5c477afdd4c4034e8",
+            "packages": [
+                "diffmatchpatch"
+            ]
+        },
+        {
+            "name": "github.com/shurcooL/github_flavored_markdown",
+            "branch": "master",
+            "revision": "3c64cb3ce00a3f4feae0c53ce7c2cc2fdacba14b",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/shurcooL/go",
+            "branch": "master",
+            "revision": "16c2a662e939218caa19feb62fea301e6a7fa758",
+            "packages": [
+                "reflectsource"
+            ]
+        },
+        {
+            "name": "github.com/shurcooL/go-goon",
+            "branch": "master",
+            "revision": "a0792a0a8f8fa9a233843e67079b051b571e609c",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/shurcooL/highlight_diff",
+            "branch": "master",
+            "revision": "d3b292edd8c8311b9d264e3adc26cdf39695fe9b",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/shurcooL/highlight_go",
+            "branch": "master",
+            "revision": "7867c2dec5d03326c952ca98eda2abf907ddfcf3",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/shurcooL/octiconssvg",
+            "branch": "master",
+            "revision": "1aed2117d2aa8eed76a052936e468e5354750701",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/shurcooL/sanitized_anchor_name",
+            "branch": "master",
+            "revision": "1dba4b3954bc059efc3991ec364f9f9a35f597d2",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/sourcegraph/annotate",
+            "branch": "master",
+            "revision": "f4cad6c6324d3f584e1743d8b3e0e017a5f3a636",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/sourcegraph/syntaxhighlight",
+            "branch": "master",
+            "revision": "c95ac474b7cb9c711f4591b553a2caaa24ea3d37",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/spf13/afero",
+            "branch": "master",
+            "revision": "9be650865eab0c12963d8753212f4f9c66cdcf12",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/spf13/cast",
+            "branch": "master",
+            "revision": "d1139bab1c07d5ad390a65e7305876b3c1a8370b",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/spf13/cobra",
+            "branch": "master",
+            "revision": "ee4055870c2d5f7ce112642377e32c9929c3bbaf",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/spf13/jwalterweatherman",
+            "branch": "master",
+            "revision": "fa7ca7e836cf3a8bb4ebf799f472c12d7e903d66",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/spf13/pflag",
+            "branch": "master",
+            "revision": "9ff6c6923cfffbcd502984b8e0c80539a94968b7",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/spf13/viper",
+            "branch": "master",
+            "revision": "7538d73b4eb9511d85a9f1dfef202eeb8ac260f4",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "golang.org/x/net",
+            "branch": "master",
+            "revision": "6b27048ae5e6ad1ef927e72e437531493de612fe",
+            "packages": [
+                "html",
+                "html/atom"
+            ]
+        },
+        {
+            "name": "golang.org/x/sys",
+            "branch": "master",
+            "revision": "075e574b89e4c2d22f2286a7e2b919519c6f3547",
+            "packages": [
+                "unix"
+            ]
+        },
+        {
+            "name": "golang.org/x/text",
+            "branch": "master",
+            "revision": "85c29909967d7f171f821e7a42e7b7af76fb9598",
+            "packages": [
+                "transform",
+                "unicode/norm"
+            ]
+        },
+        {
+            "name": "gopkg.in/check.v1",
+            "branch": "v1",
+            "revision": "20d25e2804050c1cd24a7eea1e7a6447dd0e74ec",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "gopkg.in/yaml.v2",
+            "branch": "v2",
+            "revision": "4c78c975fe7c825c6d1466c42be594d1d6f3aba6",
+            "packages": [
+                "."
+            ]
+        }
+    ]
+}
