@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/VojtechVitek/go-trello"
-	check "github.com/go-check/check"
+	"github.com/go-check/check"
 )
 
 func Test(t *testing.T) {
