@@ -11,8 +11,8 @@
         },
         {
             "name": "github.com/fsnotify/fsnotify",
-            "branch": "master",
-            "revision": "a904159b9206978bb6d53fcc7a769e5cd726c737",
+            "version": "v1.4.2",
+            "revision": "629574ca2a5df945712d3079857300b5e4da0236",
             "packages": [
                 "."
             ]
@@ -35,8 +35,8 @@
         },
         {
             "name": "github.com/magiconair/properties",
-            "branch": "master",
-            "revision": "b3b15ef068fd0b17ddf408a23669f20811d194d2",
+            "version": "v1.7.0",
+            "revision": "c265cfa48dda6474e208715ca93e987829f572f8",
             "packages": [
                 "."
             ]
@@ -67,8 +67,8 @@
         },
         {
             "name": "github.com/pelletier/go-toml",
-            "branch": "master",
-            "revision": "22139eb5469018e7374b3e7ef653de37ffb44f72",
+            "version": "v0.4.0",
+            "revision": "d464759235b8fd59f8ab4c44807d7c36e1678add",
             "packages": [
                 "."
             ]
@@ -83,8 +83,8 @@
         },
         {
             "name": "github.com/russross/blackfriday",
-            "branch": "master",
-            "revision": "5f33e7b7878355cd2b7e6b8eefc48a5472c69f70",
+            "version": "v1.4",
+            "revision": "0b647d0506a698cca42caca173e55559b12a69f2",
             "packages": [
                 "."
             ]
@@ -254,7 +254,7 @@
         {
             "name": "gopkg.in/yaml.v2",
             "branch": "v2",
-            "revision": "4c78c975fe7c825c6d1466c42be594d1d6f3aba6",
+            "revision": "a3f3340b5840cee44f372bddb5880fcbc419b46a",
             "packages": [
                 "."
             ]
