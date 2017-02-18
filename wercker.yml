@@ -31,20 +31,19 @@ build:
         name: go get
         code: |
           go get ./...
-          go get -u github.com/golang/dep/...
-          go get jrubin.io/zb
+          curl https://glide.sh/get | sh
 
     # Build the project
     - script:
-        name: zb build
+        name: go build
         code: |
-          dep ensure
-          zb build
+          glide i
+          go build ./...
 
     # Test the project
     - script:
-        name: zb test
+        name: go test
         code: |
-          zb test
+          go test
 
     - golint
