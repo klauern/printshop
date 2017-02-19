@@ -41,3 +41,6 @@ vendor/
 # Wercker configuration and build stuff
 wercker.env
 .wercker
+
+# environment vars
+setup.sh
