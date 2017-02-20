@@ -4,7 +4,6 @@ import "github.com/VojtechVitek/go-trello"
 import "github.com/pkg/errors"
 import "strings"
 import "github.com/shurcooL/github_flavored_markdown"
-import "sync"
 
 var TrelloAPIError = errors.New("Error calling the Trello API")
 
@@ -40,7 +39,6 @@ type BoardContainer struct {
 	board *trello.Board
 	lists []*trello.List
 	cards map[listID][]trello.Card
-	mux   sync.Mutex
 }
 
 func NewContainer(c *trello.Client, boardID string) (*BoardContainer, error) {

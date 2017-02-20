@@ -2,7 +2,6 @@ package printshop
 
 import (
 	"reflect"
-	"sync"
 	"testing"
 
 	"os"
@@ -67,7 +66,6 @@ func TestBoardContainer_RetrieveCards(t *testing.T) {
 		board *trello.Board
 		lists []*trello.List
 		cards map[listID][]trello.Card
-		mux   sync.Mutex
 	}
 	tests := []struct {
 		name    string
@@ -82,7 +80,6 @@ func TestBoardContainer_RetrieveCards(t *testing.T) {
 				board: tt.fields.board,
 				lists: tt.fields.lists,
 				cards: tt.fields.cards,
-				mux:   tt.fields.mux,
 			}
 			if err := c.RetrieveCards(); (err != nil) != tt.wantErr {
 				t.Errorf("BoardContainer.RetrieveCards() error = %v, wantErr %v", err, tt.wantErr)
@@ -96,7 +93,6 @@ func TestBoardContainer_ListWorker(t *testing.T) {
 		board *trello.Board
 		lists []*trello.List
 		cards map[listID][]trello.Card
-		mux   sync.Mutex
 	}
 	type args struct {
 		id      int
@@ -116,7 +112,6 @@ func TestBoardContainer_ListWorker(t *testing.T) {
 				board: tt.fields.board,
 				lists: tt.fields.lists,
 				cards: tt.fields.cards,
-				mux:   tt.fields.mux,
 			}
 			c.ListWorker(tt.args.id, tt.args.listJob, tt.args.results)
 		})
