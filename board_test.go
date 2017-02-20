@@ -21,8 +21,8 @@ func TestWithCheck(t *testing.T) {
 var _ = check.Suite(&BoardSuite{})
 
 func (s *BoardSuite) SetUpSuite(c *check.C) {
-	token := os.Getenv(TOKEN_ENV)
-	key := os.Getenv(KEY_ENV)
+	token := os.Getenv(EnvTrelloToken)
+	key := os.Getenv(EnvTrelloKey)
 	client, err := trello.NewAuthClient(key, &token)
 	if err != nil {
 		panic(err)
