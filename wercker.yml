@@ -46,4 +46,5 @@ build:
         code: |
           go test $(go list ./... | grep -v /vendor/)
 
-    - golint
+    - wercker/golint:
+        exclude: "vendor"
