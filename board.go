@@ -2,8 +2,8 @@ package printshop
 
 import "github.com/VojtechVitek/go-trello"
 import "github.com/pkg/errors"
-import "strings"
 import "github.com/shurcooL/github_flavored_markdown"
+import "strings"
 
 // ErrTrelloAPI represents an error with the underlying Trello API calls.
 var ErrTrelloAPI = errors.New("Error calling the Trello API")
