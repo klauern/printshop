@@ -7,14 +7,16 @@ import (
 	"gopkg.in/mailgun/mailgun-go.v1"
 )
 
+// MailClient provides all of the necessary bits to connect to the MailGun API.
 type MailClient struct {
 	domain       string
 	apiKey       string
 	publicApiKey string
 }
 
+// Sender is an interface for sending emails.
 type Sender interface {
-	Send(email *Email, client *MailClient) (bool, error)
+	Send(email *Email) (bool, error)
 }
 
 func (c *MailClient) Send(email *Email) (bool, error) {
