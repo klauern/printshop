@@ -4,6 +4,7 @@ import "github.com/VojtechVitek/go-trello"
 import "github.com/pkg/errors"
 import "github.com/shurcooL/github_flavored_markdown"
 import "strings"
+import "bytes"
 
 // ErrTrelloAPI represents an error with the underlying Trello API calls.
 var ErrTrelloAPI = errors.New("Error calling the Trello API")
@@ -34,6 +35,7 @@ type Section struct {
 // MetaData represents the data about the email that will be sent.
 type MetaData struct {
 	subject string
+	from    string
 }
 
 // Email is the overarching struct for sending an email.
@@ -103,6 +105,13 @@ func (c *BoardContainer) ListWorker(id int, listJob <-chan *trello.List, results
 		if cards, err := j.Cards(); err == nil {
 			results <- cards
 		}
+	}
+}
+
+func (e *Email) RenderBody() (string, error) {
+	var body bytes.Buffer
+	for _, s := range e.sections {
+		s.
 	}
 }
 
