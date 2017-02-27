@@ -22,7 +22,15 @@
             "branch": "master",
             "revision": "630949a3c5fa3c613328e1b8256052cbc2327c9b",
             "packages": [
-                "."
+                ".",
+                "hcl/ast",
+                "hcl/parser",
+                "hcl/scanner",
+                "hcl/strconv",
+                "hcl/token",
+                "json/parser",
+                "json/scanner",
+                "json/token"
             ]
         },
         {
@@ -110,6 +118,9 @@
             "branch": "master",
             "revision": "16c2a662e939218caa19feb62fea301e6a7fa758",
             "packages": [
+                "parserutil",
+                "printerutil",
+                "reflectfind",
                 "reflectsource"
             ]
         },
@@ -174,13 +185,14 @@
             "branch": "master",
             "revision": "9be650865eab0c12963d8753212f4f9c66cdcf12",
             "packages": [
-                "."
+                ".",
+                "mem"
             ]
         },
         {
             "name": "github.com/spf13/cast",
             "branch": "master",
-            "revision": "d1139bab1c07d5ad390a65e7305876b3c1a8370b",
+            "revision": "f820543c3592e283e311a60d2a600a664e39f6f7",
             "packages": [
                 "."
             ]
@@ -188,7 +200,7 @@
         {
             "name": "github.com/spf13/cobra",
             "branch": "master",
-            "revision": "ee4055870c2d5f7ce112642377e32c9929c3bbaf",
+            "revision": "92ea23a837e66f46ac9e7d04fa826602b7b0a42d",
             "packages": [
                 "."
             ]
@@ -220,7 +232,7 @@
         {
             "name": "golang.org/x/net",
             "branch": "master",
-            "revision": "6b27048ae5e6ad1ef927e72e437531493de612fe",
+            "revision": "dd2d9a67c97da0afa00d5726e28086007a0acce5",
             "packages": [
                 "html",
                 "html/atom"
@@ -229,7 +241,7 @@
         {
             "name": "golang.org/x/sys",
             "branch": "master",
-            "revision": "075e574b89e4c2d22f2286a7e2b919519c6f3547",
+            "revision": "e4594059fe4cde2daf423055a596c2cd1e6c9adf",
             "packages": [
                 "unix"
             ]
@@ -237,9 +249,13 @@
         {
             "name": "golang.org/x/text",
             "branch": "master",
-            "revision": "85c29909967d7f171f821e7a42e7b7af76fb9598",
+            "revision": "4687d739464a2d0af89a25be0318456e0776f3ef",
             "packages": [
+                "internal/gen",
+                "internal/triegen",
+                "internal/ucd",
                 "transform",
+                "unicode/cldr",
                 "unicode/norm"
             ]
         },
