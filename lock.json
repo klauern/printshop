@@ -1,5 +1,5 @@
 {
-    "memo": "12c6762b66b3fe2ecb5f6e60bf95045de513aa0ab79558f7245fa8f7665fdf98",
+    "memo": "f68d1ef1bbbde39e82a2561bfdabe71b00708f014157e71bf44a0cb5e5fffd43",
     "projects": [
         {
             "name": "github.com/VojtechVitek/go-trello",
@@ -60,7 +60,7 @@
         {
             "name": "github.com/mitchellh/mapstructure",
             "branch": "master",
-            "revision": "db1efb556f84b25a0a13a04aad883943538ad2e0",
+            "revision": "53818660ed4955e899c0bcafa97299a388bd7c8e",
             "packages": [
                 "."
             ]
@@ -68,7 +68,7 @@
         {
             "name": "github.com/pelletier/go-buffruneio",
             "branch": "master",
-            "revision": "df1e16fde7fc330a0ca68167c23bf7ed6ac31d6d",
+            "revision": "c37440a7cf42ac63b919c752ca73a85067e05992",
             "packages": [
                 "."
             ]
@@ -84,7 +84,7 @@
         {
             "name": "github.com/pkg/errors",
             "branch": "master",
-            "revision": "248dadf4e9068a0b3e79f02ed0a610d935de5302",
+            "revision": "bfd5150e4e41705ded2129ec33379de1cb90b513",
             "packages": [
                 "."
             ]
@@ -191,8 +191,8 @@
         },
         {
             "name": "github.com/spf13/cast",
-            "branch": "master",
-            "revision": "f820543c3592e283e311a60d2a600a664e39f6f7",
+            "version": "v1.0.0",
+            "revision": "ce135a4ebeee6cfe9a26c93ee0d37825f26113c7",
             "packages": [
                 "."
             ]
@@ -200,7 +200,7 @@
         {
             "name": "github.com/spf13/cobra",
             "branch": "master",
-            "revision": "92ea23a837e66f46ac9e7d04fa826602b7b0a42d",
+            "revision": "fcd0c5a1df88f5d6784cb4feead962c3f3d0b66c",
             "packages": [
                 "."
             ]
@@ -232,7 +232,7 @@
         {
             "name": "golang.org/x/net",
             "branch": "master",
-            "revision": "dd2d9a67c97da0afa00d5726e28086007a0acce5",
+            "revision": "d379faa25cbdc04d653984913a2ceb43b0bc46d7",
             "packages": [
                 "html",
                 "html/atom"
@@ -241,7 +241,7 @@
         {
             "name": "golang.org/x/sys",
             "branch": "master",
-            "revision": "e4594059fe4cde2daf423055a596c2cd1e6c9adf",
+            "revision": "e48874b42435b4347fc52bdee0424a52abc974d7",
             "packages": [
                 "unix"
             ]
@@ -249,7 +249,7 @@
         {
             "name": "golang.org/x/text",
             "branch": "master",
-            "revision": "4687d739464a2d0af89a25be0318456e0776f3ef",
+            "revision": "f28f36722d5ef2f9655ad3de1f248e3e52ad5ebd",
             "packages": [
                 "internal/gen",
                 "internal/triegen",
@@ -263,6 +263,14 @@
             "name": "gopkg.in/check.v1",
             "branch": "v1",
             "revision": "20d25e2804050c1cd24a7eea1e7a6447dd0e74ec",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "gopkg.in/mailgun/mailgun-go.v1",
+            "version": "v1.1.0",
+            "revision": "a4002e2df2e8ca2da6a6fbb4a72871b504e49f50",
             "packages": [
                 "."
             ]
