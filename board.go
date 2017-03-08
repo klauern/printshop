@@ -9,6 +9,8 @@ import "bytes"
 // ErrTrelloAPI represents an error with the underlying Trello API calls.
 var ErrTrelloAPI = errors.New("Error calling the Trello API")
 
+var ErrEmptyBody = errors.New("Empty Message Body")
+
 const (
 	// EnvTrelloToken represents the environment variables that holds a particular authorization token for Trello.
 	EnvTrelloToken = "TRELLO_TOKEN"
@@ -111,8 +113,9 @@ func (c *BoardContainer) ListWorker(id int, listJob <-chan *trello.List, results
 func (e *Email) RenderBody() (string, error) {
 	var body bytes.Buffer
 	for _, s := range e.sections {
-		s.
 	}
+	return "", ErrEmptyBody
+
 }
 
 // NewEmail will create a newsletter Email from a given Trello Board
@@ -124,7 +127,12 @@ func NewEmail(b *trello.Board) *Email {
 	email := &Email{}
 	for _, v := range lists {
 		if v.Name == MetaDataListName {
-			meta, err := NewMetaData(&v)
+			subj, err := SubjectLine(&v)
+			from, err := FromAddr(&v)
+			meta := &MetaData{
+				subject: subj,
+				from:    from,
+			}
 			if err == nil {
 				email.meta = *meta
 			}
@@ -138,18 +146,33 @@ func NewEmail(b *trello.Board) *Email {
 	return email
 }
 
-// NewMetaData will create the MetaData type from a given Trello List.
-func NewMetaData(l *trello.List) (*MetaData, error) {
+// SubjectLine will retrieve the MetaData type from a given Trello List with 'subject'.
+func SubjectLine(l *trello.List) (string, error) {
 	cards, err := l.Cards()
 	if err != nil {
-		return nil, errors.Wrapf(err, "Unable to retrieve cards for list %s", l.Name)
+		return "", errors.Wrapf(err, "Unable to retrieve cards for list %s", l.Name)
 	}
 	for _, card := range cards {
-		if strings.ToLower(card.Name) == "subject" {
-			return &MetaData{card.Desc}, nil
+		switch strings.ToLower(card.Name) {
+		case "subject":
+			return card.Desc, nil
 		}
 	}
-	return nil, errors.New("No card with 'subject' found in name")
+	return "", errors.New("No card with 'subject' found in name")
+}
+
+func FromAddr(l *trello.List) (string, error) {
+	cards, err := l.Cards()
+	if err != nil {
+		return "", errors.Wrapf(err, "Unable to retrieve cards for list %s", l.Name)
+	}
+	for _, card := range cards {
+		switch strings.ToLower(card.Name) {
+		case "from":
+			return card.Desc, nil
+		}
+	}
+	return "", errors.New("No card with 'from' found in name")
 }
 
 // NewSection will create a Section out of a Trello List.
